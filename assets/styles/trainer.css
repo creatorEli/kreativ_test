@@ -1,0 +1,333 @@
+:root {
+    --border-color: #38B1C2;
+    --main-blue-color: #57e3f7;
+}
+
+@font-face {
+    font-family: "inter";
+    src: url("../fonts/inter/static/Inter_18pt-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Palanquin Dark";
+    src: url("../fonts/Palanquin_Dark/PalanquinDark-Regular.ttf");
+}
+
+body {
+    margin: 0;
+}
+
+.trainer-wrapper {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    background-color: var(--main-blue-color);
+}
+
+.white-body-field {
+    width: 90vw;
+    height: 90vh;
+    margin: 5vh auto 5vh;
+
+    background-color: #fff;
+
+    border: 5px solid var(--border-color);
+    border-radius: 20px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    /* прокрутка если не помещается */
+}
+
+.form-trainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.trainer-image {
+    max-width: 500px;
+
+    height: auto;
+    width: 100%;
+
+    flex-shrink: 0;
+}
+
+.trainer-image>img {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* стили формы тренажёра (Ввода текста и кнопки)*/
+
+.trainer-text {
+    height: 40px;
+    font-size: 34.42px;
+    cursor: default;
+    user-select: none;
+}
+
+.trainer-form {
+    font-family: "inter";
+    max-width: 735px;
+    width: 100%;
+    height: 150px;
+}
+
+.input-button-field {
+    width: 100%;
+    height: 110px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-button-field>* {
+    border: 3px solid #000;
+    border-radius: 20px;
+}
+
+.text-field {
+    box-sizing: border-box;
+    width: calc(100% - 120px);
+    height: 100%;
+    font-size: 54.35px;
+}
+
+.check-button {
+    box-sizing: border-box;
+    width: 110px;
+    height: 110px;
+    background-color: #fff;
+}
+
+.check-button>img {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* Стили для навигационного меню (слева или свехру) */
+
+.navigation-menu {
+    width: 154px;
+    height: 542px;
+
+    position: fixed;
+    left: -37px;
+    top: calc(50vh - 271px);
+
+    background-color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border: 5px solid var(--border-color);
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+.navigation-menu>button {
+    width: 94px;
+    height: 78px;
+    margin-left: 46px;
+
+    border: 3px solid #969695;
+    border-radius: 20px;
+
+    flex-shrink: 0;
+    /* ЗАПРЕЩАЕТ сжатие кнопок */
+    flex-grow: 0;
+    /* запрещает растягивание */
+}
+
+.navigation-menu>button>p {
+    font-family: "Palanquin Dark";
+    font-size: 64px;
+    line-height: 64px;
+    margin: 0;
+    position: relative;
+    bottom: 7px;
+}
+
+.completed-nav-btn {
+    background-color: #DAA4FA;
+}
+
+.active-nav-btn {
+    background-color: #B480D3;
+}
+
+
+/* Адаптив для малых экранов (планшетов) */
+@media (max-width: 1000px) {
+    .navigation-menu {
+        flex-direction: row;
+        position: inherit;
+        margin: 0 auto;
+        width: 90vw;
+        height: 110px;
+        align-items: center;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+
+    .navigation-menu>button {
+        margin: 0 10px;
+    }
+
+    .white-body-field {
+        height: calc(90vh - 110px);
+    }
+}
+
+/* Фикс для смартфонов */
+@media (max-width: 480px) {
+    .input-button-field {
+        flex-direction: column;
+        height: 160px;
+    }
+
+    .text-field {
+        width: 100%;
+        height: 80px;
+    }
+
+    .check-button {
+        height: 80px;
+        width: 80px;
+        margin: 6px auto;
+    }
+
+    .trainer-text {
+        font-size: 28px;
+    }
+}
+
+/* Фикс для смартфонов в горизонтальном положении */
+@media (max-height: 480px) {
+    .input-button-field {
+        flex-direction: column;
+        height: 240px;
+    }
+
+    .text-field {
+        width: 100%;
+    }
+
+    .form-trainer {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .trainer-image {
+        max-width: 300px;
+
+        height: auto;
+        width: 100%;
+
+        flex-shrink: 0;
+    }
+
+    .trainer-form {
+        height: inherit;
+    }
+
+}
+
+
+/* Стили для 4K мониторов (от 2560px и выше) */
+@media (min-width: 2560px) {
+    .white-body-field {
+        width: 70vw;
+        /* Уменьшаем процент от ширины */
+        max-width: 1600px;
+        /* Ограничиваем максимальную ширину */
+        height: 85vh;
+        margin: 7.5vh auto;
+        border-width: 8px;
+    }
+
+    .trainer-image {
+        max-width: 800px;
+        max-height: 600px;
+        width: 50vw;
+        height: auto;
+    }
+
+    .trainer-text {
+        font-size: 60px;
+        /* Увеличиваем шрифты */
+        height: 60px;
+    }
+
+    .trainer-form {
+        max-width: 1200px;
+        height: 220px;
+    }
+
+    .text-field {
+        font-size: 72px;
+        width: calc(100% - 180px);
+    }
+
+    .input-button-field {
+        height: 160px;
+    }
+
+    .check-button {
+        width: 160px;
+        height: 160px;
+    }
+
+    .navigation-menu {
+        width: 220px;
+        height: 780px;
+        left: -50px;
+        border-width: 8px;
+    }
+
+    .navigation-menu>button {
+        width: 134px;
+        height: 110px;
+        font-size: 90px;
+        margin-left: 66px;
+    }
+}
+
+/* Для настоящих 4K (3840px и выше) */
+@media (min-width: 3840px) {
+    .white-body-field {
+        width: 60vw;
+        max-width: 2000px;
+        border-width: 10px;
+    }
+
+    .trainer-image {
+        max-width: 1000px;
+        max-height: 1000px;
+    }
+
+    .trainer-text {
+        font-size: 64px;
+    }
+
+    .text-field {
+        font-size: 96px;
+    }
+
+    .navigation-menu {
+        width: 280px;
+        height: 980px;
+    }
+
+    .navigation-menu>button {
+        width: 170px;
+        height: 140px;
+        font-size: 120px;
+    }
+}
